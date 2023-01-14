@@ -4,13 +4,18 @@ package com.codecool.model;
 import java.util.UUID;
 
 public class Pony {
+    public static final int MAXIMUM_AMOUNT_OF_MOVEMENT = 1;
     protected String name;
     protected int xp;
     protected Position position;
     protected UUID id;
 
     public void move(Position newPosition) {
-        position = newPosition;
+        if (Math.abs(newPosition.getX() - position.getX()) <= MAXIMUM_AMOUNT_OF_MOVEMENT && Math.abs(newPosition.getY() - position.getY()) <= MAXIMUM_AMOUNT_OF_MOVEMENT) {
+            position = newPosition;
+        } else {
+            throw new IllegalArgumentException("Cannot move more than 1 unit on x or y axis.");
+        }
     }
 
     public void rename(String newName) {
