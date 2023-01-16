@@ -22,6 +22,10 @@ public class Pony {
         name = newName;
     }
 
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
     public Pony(String name, int xp, Position position) {
         this.name = name;
         this.xp = xp;
